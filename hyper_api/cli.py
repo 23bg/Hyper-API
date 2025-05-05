@@ -1,41 +1,22 @@
 import typer
-
-# import all the files here
-from commands import create
-
-
+from commands.create import create_project
+from commands.generators.module import create_module
 
 app = typer.Typer()
 
-
 @app.command()
-def generate_module(name: str):
+def create(name: str):
     """
-    Generate a new module
+    Create a new project with the given name.
     """
-    typer.echo(f"Module '{name}' generated.")
-
+    create_project(name)
+    
 @app.command()
-def generate_controller(name: str):
+def res(name: str):
     """
-    Generate a new controller
+    Create a new project with the given name.
     """
-    typer.echo(f"Controller '{name}' generated.")
-
-@app.command()
-def generate_service(name: str):
-    """
-    Generate a new service
-    """
-    typer.echo(f"Service '{name}' generated.")
-
-@app.command()
-def generate_guard(name: str):
-    """
-    Generate a new guard
-    """
-    typer.echo(f"Guard '{name}' generated.")
-
+    create_module(name)
 
 if __name__ == "__main__":
     app()
