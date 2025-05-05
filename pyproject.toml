@@ -1,0 +1,26 @@
+[project]
+name = "HyperAPI"
+version = "0.1.0"
+description = "A Full-Featured and Stable Backend with FastAPI"
+authors = [{name = "Mr. Prathamesh More", email = "iamprathamshmore07@gmail.com"}]
+dependencies = [
+  "typer[all]",
+  "fastapi",   # Ensure necessary dependencies
+  "uvicorn",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest",
+  "pytest-cov",
+  "black",
+  "flake8",
+]
+
+[project.scripts]
+hyperapi = "cli:app"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
